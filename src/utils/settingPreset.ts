@@ -44,7 +44,7 @@ export type SettingNames =
   | 'deepseekAPIKey'
   | 'deepseekCustomModel'
   | 'deepseekModelSelect'
-  | 'gdeepseekTemperature'
+  | 'deepseekTemperature'
   | 'deepseekMaxTokens'
   | 'ollamaEndpoint'
   | 'ollamaCustomModel'
@@ -170,7 +170,7 @@ export const settingPreset: Record<SettingNames, ISettingOption> = {
   deepseekAPIKey: defaultInputSetting,
   deepseekCustomModel: defaultInputSetting,
   deepseekModelSelect: selectSetting(
-    availableModelsForGemini['deepseek-chat'],
+    availableModelsForDeepseek['deepseek-chat'],
     'deepseekModel',
     optionLists.deepseekModelList,
     availableModelsForDeepseek
