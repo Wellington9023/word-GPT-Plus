@@ -154,7 +154,7 @@
         </el-button>
         <el-button
           v-if="
-            ['azure', 'official', 'gemini', 'ollama', 'groq'].includes(
+            ['azure', 'official', 'gemini','deepseek', 'ollama', 'groq'].includes(
               settingForm.api
             )
           "
