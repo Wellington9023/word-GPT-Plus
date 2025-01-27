@@ -4,6 +4,7 @@ import {
   availableModelsForGemini,
   availableModelsForGroq,
   availableModelsForOllama,
+  availableModelsForDeepseek,
   languageMap
 } from './constant'
 
@@ -19,6 +20,7 @@ export function checkAuth(auth: Auth): boolean {
       (auth.type === 'azure' && !!auth.azureAPIKey) ||
       (auth.type === 'gemini' && !!auth.geminiAPIKey) ||
       (auth.type === 'groq' && !!auth.groqAPIKey) ||
+      (auth.type === 'deepseek' && !!auth.deepseekAPIKey) 
       auth.type === 'ollama')
   )
 }
@@ -60,6 +62,7 @@ export const optionLists = {
   replyLanguageList: getOptionList(languageMap, 'value'),
   officialModelList: getOptionList(availableModels),
   geminiModelList: getOptionList(availableModelsForGemini),
+  deepseekModelList: getOptionList(availableModelsForDeepseek),
   ollamaModelList: getOptionList(availableModelsForOllama),
   groqModelList: getOptionList(availableModelsForGroq)
 }
