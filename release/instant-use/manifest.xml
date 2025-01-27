@@ -24,7 +24,7 @@
   <HighResolutionIconUrl DefaultValue="https://word.msq.pub/assets/icon-64.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
-  <SupportUrl DefaultValue="https://github.com/Kuingsmile/word-GPT-Plus" />
+  <SupportUrl DefaultValue="https://github.com/Wellington9023/word-GPT-Plus" />
 
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
