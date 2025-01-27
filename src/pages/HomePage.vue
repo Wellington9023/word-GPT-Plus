@@ -525,6 +525,41 @@ async function template(taskType: keyof typeof buildInPrompt | 'custom') {
         settingForm.value.geminiModelSelect
     })
   } else if (
+    settingForm.value.api === 'deepseek' &&
+    settingForm.value.deepseekAPIKey
+  ) {
+    historyDialog.value = [
+      {
+        role: 'user',
+        parts: [
+          {
+            text: systemMessage + '\n' + userMessage
+          }
+        ]
+      },
+      {
+        role: 'model',
+        parts: [
+          {
+            text: 'Hi, what can I help you?'
+          }
+        ]
+      }
+    ]
+    await API.deepseek.createChatCompletionStream({
+      deepseekAPIKey: settingForm.value.deepseekAPIKey,
+      messages: userMessage,
+      result,
+      historyDialog,
+      errorIssue,
+      loading,
+      maxTokens: settingForm.value.deepseekMaxTokens,
+      temperature: settingForm.value.deepseekTemperature,
+      deepseekModel:
+        settingForm.value.deepseekCustomModel ||
+        settingForm.value.deepseekModelSelect
+    })
+  } else if (
     settingForm.value.api === 'ollama' &&
     settingForm.value.ollamaEndpoint
   ) {
@@ -566,6 +601,7 @@ function checkApiKey() {
     apiKey: settingForm.value.officialAPIKey,
     azureAPIKey: settingForm.value.azureAPIKey,
     geminiAPIKey: settingForm.value.geminiAPIKey,
+    deepseekAPIKey: settingForm.value.deepseekAPIKey,
     groqAPIKey: settingForm.value.groqAPIKey
   }
   if (!checkAuth(auth)) {
@@ -691,6 +727,41 @@ async function continueChat() {
             settingForm.value.geminiModelSelect
         })
         break
+      case 'deepseek':
+        historyDialog.value.push(
+          ...[
+            {
+              role: 'user',
+              parts: [
+                {
+                  text: 'continue'
+                }
+              ]
+            },
+            {
+              role: 'model',
+              parts: [
+                {
+                  text: 'OK, I will continue to help you.'
+                }
+              ]
+            }
+          ]
+        )
+        await API.deepseek.createChatCompletionStream({
+          deepseekAPIKey: settingForm.value.deepseekAPIKey,
+          messages: 'continue',
+          result,
+          historyDialog,
+          errorIssue,
+          loading,
+          maxTokens: settingForm.value.deepseekMaxTokens,
+          temperature: settingForm.value.deepseekTemperature,
+          deepseekModel:
+            settingForm.value.deepseekCustomModel ||
+            settingForm.value.deepseekModelSelect
+        })
+        break        
       case 'ollama':
         historyDialog.value.push({
           role: 'user',
