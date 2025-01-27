@@ -75,6 +75,12 @@ export const availableModelsForGemini: IStringKeyMap = {
   aqa: 'aqa'
 }
 
+// Deepseek API 可用的模型
+export const availableModelsForGemini: IStringKeyMap = {
+  'gdeepseek-chat': 'deepseek-chat'
+}
+
+
 // Ollama API 可用的模型
 export const availableModelsForOllama: IStringKeyMap = {
   llama3: 'llama3',
