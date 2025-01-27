@@ -23,6 +23,12 @@ export enum localStorageKey {
   geminiTemperature = 'geminiTemperature',
   geminiModel = 'geminiModel',
   geminiCustomModel = 'geminiCustomModel',
+  // deepseek api
+  deepseekAPIKey = 'deepseekAPIKey',
+  deepseekMaxTokens = 'deepseekMaxTokens',
+  deepseekTemperature = 'deepseekTemperature',
+  deepseekModel = 'deepseekModel',
+  deepseekCustomModel = 'deepseekCustomModel',
   // ollama api
   ollamaEndpoint = 'ollamaEndpoint',
   ollamaModel = 'ollamaModel',
