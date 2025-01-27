@@ -77,7 +77,7 @@ export const availableModelsForGemini: IStringKeyMap = {
 }
 
 // Deepseek API 可用的模型
-export const availableModelsForGemini: IStringKeyMap = {
+export const availableModelsForDeepseek: IStringKeyMap = {
   'gdeepseek-chat': 'deepseek-chat'
 }
 
