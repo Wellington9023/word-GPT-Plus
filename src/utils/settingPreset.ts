@@ -4,7 +4,8 @@ import {
   availableModels,
   availableModelsForGemini,
   availableModelsForGroq,
-  availableModelsForOllama
+  availableModelsForOllama,
+  availableModelsForDeepseek
 } from './constant'
 import { localStorageKey } from './enum'
 
@@ -40,6 +41,11 @@ export type SettingNames =
   | 'geminiModelSelect'
   | 'geminiTemperature'
   | 'geminiMaxTokens'
+  | 'deepseekAPIKey'
+  | 'deepseekCustomModel'
+  | 'deepseekModelSelect'
+  | 'gdeepseekTemperature'
+  | 'deepseekMaxTokens'
   | 'ollamaEndpoint'
   | 'ollamaCustomModel'
   | 'ollamaModelSelect'
@@ -160,6 +166,18 @@ export const settingPreset: Record<SettingNames, ISettingOption> = {
   ),
   geminiTemperature: inputNumSetting(0.7, 'geminiTemperature', 'temperature'),
   geminiMaxTokens: inputNumSetting(800, 'geminiMaxTokens', 'maxTokens'),
+
+  deepseekAPIKey: defaultInputSetting,
+  deepseekCustomModel: defaultInputSetting,
+  deepseekModelSelect: selectSetting(
+    availableModelsForGemini['deepseek-chat'],
+    'deepseekModel',
+    optionLists.deepseekModelList,
+    availableModelsForDeepseek
+  ),
+  deepseekTemperature: inputNumSetting(0.7, 'deepseekTemperature', 'temperature'),
+  deepseekMaxTokens: inputNumSetting(800, 'deepseekMaxTokens', 'maxTokens'),
+  
   ollamaEndpoint: defaultInputSetting,
   ollamaCustomModel: defaultInputSetting,
   ollamaModelSelect: selectSetting(
